@@ -30,6 +30,11 @@ feature 'playing a game' do
       expect(page).to have_content "Opponent chose Scissors!"
     end
 
+    scenario "I win" do
+      click_button 'Rock'
+      expect(page).to have_content
+    end
+
     def possible_messages
       [:rock, :paper, :scissors].map {|shape| "Opponent chose #{shape.to_s.capitalize}!"}
     end

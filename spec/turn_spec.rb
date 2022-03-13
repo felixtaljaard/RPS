@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Turn do
   subject(:turn) { described_class.new(options) }
-  let(:options) { {"player_name" => "Felix", "player_shape" => :rock, "opponent_shape" => :rock} }
+  let(:options) { {"player_name" => "Felix", "player_shape" => :rock, "opponent_shape" => :scissors} }
 
   describe '#player_name' do
     it 'returns player name' do
@@ -19,7 +19,15 @@ describe Turn do
 
   describe '#opponent_shape' do
     it 'returns opponents shape' do
-      expect(turn.opponent_shape).to eq :rock
+      expect(turn.opponent_shape).to eq :scissors
+    end
+  end
+
+  context 'end game' do
+    describe '#win?' do
+      it "returns true if player_shape is :rock and :opponent_shape is :scissors" do
+        expect(turn.win?).to eq true
+      end
     end
   end
 end
