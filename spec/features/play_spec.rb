@@ -24,6 +24,12 @@ feature 'playing a game' do
       expect(possible_messages).to include message
     end
 
+    scenario "opponent chooses a random option" do
+      srand(221563)
+      click_button 'Rock'
+      expect(page).to have_content "Opponent chose Scissors!"
+    end
+
     def possible_messages
       [:rock, :paper, :scissors].map {|shape| "Opponent chose #{shape.to_s.capitalize}!"}
     end
