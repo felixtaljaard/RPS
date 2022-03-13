@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'playing a game' do
   before do
     visit('/')
-    fill_in :player_1_name, with: "Felix"
+    fill_in :player_name, with: "Felix"
     click_button "Submit"
   end
     scenario 'see the options rock, paper and scissors' do
